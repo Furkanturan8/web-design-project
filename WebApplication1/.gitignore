@@ -1,0 +1,93 @@
+# .NET Core için
+bin/
+obj/
+*.dll
+*.pdb
+*.user
+*.suo
+*.cache
+*.log
+
+# VS Code için
+.vscode/
+.vs/
+*.code-workspace
+
+# Visual Studio için
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+
+# Rider için
+.idea/
+*.sln.iml
+
+# Veritabanı dosyaları
+*.db
+*.db-shm
+*.db-wal
+
+# Geçici dosyalar
+[Tt]emp/
+[Tt]mp/
+
+# Paket dosyaları
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# Kullanıcıya özel dosyalar
+*.userprefs
+*.usertasks
+
+# Derleme sonuçları
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio için geçici dosyalar
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider için geçici dosyalar
+.idea/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# .NET Scaffolding
+ScaffoldingReadMe.txt
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Publish profilleri
+*.pubxml
+*.pubxml.user
+
+# Azure
+*.publishsettings
+PublishScripts/
+
+# Secrets
+appsettings.*.json
+!appsettings.json
+!appsettings.Example.json
+*.pfx
+*.key 

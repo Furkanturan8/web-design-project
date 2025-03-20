@@ -1,0 +1,99 @@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<WebApplication1.Models.TelephoneBookModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container" >
+    <br/>
+    <div style="display: flex; justify-content: space-between;">
+        <div><h2>User List</h2></div>
+        <div class="justify-content-end">
+            <form action="@Url.Action("PrintUsers", "FileOperations", new { area = "" })">
+                <button type="submit" class="btn btn-primary large">
+                    <i class="fas fa-print"></i> <!-- Print icon -->
+                    Download All Users Data
+                </button>
+            </form>
+        </div>    
+    </div>
+    <br/>
+    @using (Html.BeginForm())
+    {
+    <div class="input-group md-form form-sm form-2 pl-0">
+        @Html.TextBox("param", null, new { @class = "form-control my-0 py-1 red-border", @placeholder="Search"})
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-search text-grey" aria-hidden="true"></i>
+        </button>
+    </div>
+    }
+    <br/>
+    <table class="table table-striped">
+        <thead>
+        <tr class="center-the-data">
+            <th>No</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Address</th>
+            <th>Telephone Number</th>
+            <th>Email</th>
+            <th>Print User Data</th>
+        </tr>
+        </thead>
+        <tbody>
+        @{
+            var userCount = (Model.PageNumber - 1) * Model.PageSize + 1;
+        }
+        @foreach (var user in Model)
+        {
+            <tr class="center-the-data">
+                <td>@userCount</td>
+                <td>@user.Name</td>
+                <td>@user.Surname</td>
+                <td>@user.Address</td>
+                <td>@user.Telephone</td>
+                <td>@user.Email</td>
+                <td class="center-the-data">
+                    <a href="@Url.Action("PrintUser", "FileOperations", new { id = user.ID })">
+                        <i class="fas fa-print"></i> <!-- Print icon -->
+                    </a>
+                </td>
+            </tr>
+            userCount++;
+        }
+        </tbody>
+    </table>
+    <!-- Sayfalama kontrolleri -->
+    <div style="height: 30px;"></div> <!-- Boşluk ayarı -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                <a class="page-link" href="@Url.Action("FileOperations", new { pageNumber = Model.HasPreviousPage ? Model.PageNumber - 1 : 1 })">Previous</a>
+            </li>
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                <a class="page-link" href="@Url.Action("FileOperations", new { pageNumber = i })">@i</a>
+            </li>
+            }
+            <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                <a class="page-link" href="@Url.Action("FileOperations", new { pageNumber = Model.HasNextPage ? Model.PageNumber + 1 : Model.PageCount })">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<style>
+    
+.center-the-data{
+    text-align: center;
+    vertical-align: middle;
+}
+</style>
+
+<!--
+<a asp-controller="TelephoneBook" asp-action="Edit" >
+    <i class="fas fa-pencil-alt"></i> 
+</a>
+-->

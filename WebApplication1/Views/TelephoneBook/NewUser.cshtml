@@ -1,0 +1,60 @@
+@model WebApplication1.Models.TelephoneBookModel
+@if (ViewData["CustomErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@ViewData["CustomErrorMessage"]</div>
+}
+
+<div class="container">
+    <br/>
+    <h2>Add New User</h2>
+    <br/>
+    <form asp-controller="TelephoneBook" asp-action="NewUser" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Name">Name:</label>
+                    <input asp-for="Name" class="form-control" placeholder="Enter name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <label for="Surname">Surname:</label>
+                    <input asp-for="Surname" class="form-control" placeholder="Enter surname">
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+                <br/>
+                <br/>
+                <button type="submit" class="btn btn-primary save-btn">Save</button>
+            </div>
+            <br/>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Address">Address:</label>
+                    <input asp-for="Address" class="form-control" placeholder="Enter address">
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <label for="Email">Email:</label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <br/>
+
+                <div class="form-group">
+                    <label for="Telephone">Telephone Number:</label>
+                    <input asp-for="Telephone" class="form-control" placeholder="Enter telephone number">
+                    <span asp-validation-for="Telephone" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<style>
+    .save-btn {
+        width: 625px; 
+        height: 38px; 
+        font-size: 16px; 
+    }
+</style>

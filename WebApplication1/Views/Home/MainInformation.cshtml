@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Main Information";
+    int userCount = (int)Model; // Kullanıcı sayısını al
+    
+}
+<br/>
+<h1 class="text-center">@ViewData["Title"]</h1>
+<br/><br/><br/>
+<div class="card-container d-flex justify-content-around">
+    <div class="card border" style="max-width: 10cm;">
+        <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/512x512/shadow/user_telephone.png" class="card-img-top"  alt="Kullanıcı Sayısı">
+        <div class="card-body">
+            <h5 class="card-title text-center">Total Number of Users</h5>
+            <p class="card-text text-center">Currently, there are <b>@userCount</b> contacts registered in the phone book.</p>
+        </div>
+    </div>
+    <div class="card border" style="max-width: 10cm;">
+        <img src="https://static.vecteezy.com/system/resources/previews/005/482/669/original/mobile-phone-in-hand-with-information-on-display-line-icon-info-for-customer-on-smartphone-screen-linear-pictogram-information-on-phone-outline-icon-isolated-illustration-vector.jpg" class="card-img-top"  alt="Kullanıcı Sayısı">
+        <div class="card-body">
+            <h5 class="card-title text-center">Information about user actions.</h5>
+            <ul class="text-center">
+                <li><p>An existing phone number in the phonebook cannot be added again.</p></li>
+                <li><p>An existing email in the phonebook cannot be added again.</p></li>
+            </ul>
+        </div>
+    </div>
+</div>
