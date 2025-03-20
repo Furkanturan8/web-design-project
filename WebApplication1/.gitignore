@@ -22,6 +22,7 @@ obj/
 
 # Rider için
 .idea/
+../.idea/
 *.sln.iml
 
 # Veritabanı dosyaları
